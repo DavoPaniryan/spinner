@@ -14,10 +14,6 @@ export const Spinner = () => {
     const [error, setError] = useState<string>('');
     const [winner, setWinner] = useState<ISection | null>(null);
 
-    useEffect(() => {
-        console.log('Updated currentSection:', currentSection);
-    }, [currentSection]);
-
     const handleSpin = () => {
         if (spinning || sections.length === 0) return;
         setSpinning(true);
