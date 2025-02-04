@@ -1,0 +1,109 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.wheelContainer {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wheel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 3s ease-out;
+    border: 6px solid #fff;
+    display: flex;
+}
+
+.arrow {
+    position: absolute;
+    right: -2rem;
+    transform: translateY(-50%) rotate(0deg); 
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.section {
+    position: absolute;
+    width: 103%;
+    height: 100%;
+    transform-origin: 50% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.sectionText {
+    position: absolute;
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+    top: 50%;
+    left: 80%;
+    white-space: nowrap;
+}
+
+
+
+.spinButton {
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    background-color: #2563eb;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spinButton:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+}
+
+.spinButton:disabled {
+    background: #64748b;
+    cursor: not-allowed;
+    transform: translate(-50%, -50%) none;
+    opacity: 0.7;
+}
+
+.editSectionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f1f5f9;
+    margin-left: 16px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 2rem;
+    width: 300px;
+    text-align: center;
+    height: auto;
+}
+
+.error {
+    color: red;
+}
