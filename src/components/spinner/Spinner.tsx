@@ -36,7 +36,7 @@ export const Spinner = () => {
         const anglePerSection = 360 / sections.length;
         const normalizedRotation = ((newRotation % 360) + 360) % 360;
 
-        const pointerOffset = Math.floor(anglePerSection / 2);
+        const pointerOffset = Math.round(anglePerSection / 2);
 
         const adjustedRotation =
             (pointerOffset - normalizedRotation + 360) % 360;
