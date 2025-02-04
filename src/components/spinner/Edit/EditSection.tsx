@@ -7,6 +7,7 @@ interface EditSectionProps {
     setSections: React.Dispatch<React.SetStateAction<ISection[]>>;
     sections: ISection[];
     setCurrentSection: React.Dispatch<React.SetStateAction<ISection | null>>;
+    spinning: boolean;
 }
 
 export const EditSection = ({
@@ -14,6 +15,7 @@ export const EditSection = ({
     setSections,
     sections,
     setCurrentSection,
+    spinning,
 }: EditSectionProps) => {
     const [newText, setNewText] = useState(section.text);
     const [newColor, setNewColor] = useState(section.color);
@@ -24,6 +26,8 @@ export const EditSection = ({
     }, [section]);
 
     const handleSave = () => {
+        if (spinning) return;
+
         const updatedSections = sections.map((sec) => {
             if (section.id !== sec.id) return sec;
             return { ...section, text: newText, color: newColor };
@@ -34,6 +38,8 @@ export const EditSection = ({
     };
 
     const handleDelete = () => {
+        if (spinning) return;
+
         const updatedSections = sections.filter((sec) => sec.id !== section.id);
         setSections(updatedSections);
         setCurrentSection(null);

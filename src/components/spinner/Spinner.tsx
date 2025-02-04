@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styles from './Spinner.module.css';
 import { AddSection } from './Add/AddSection';
 import { ISection } from '../../helpers/types';
@@ -139,6 +139,7 @@ export const Spinner = () => {
             {currentSection && (
                 <div className={styles.editSectionContainer}>
                     <EditSection
+                        spinning={spinning}
                         section={currentSection}
                         setSections={setSections}
                         sections={sections}
