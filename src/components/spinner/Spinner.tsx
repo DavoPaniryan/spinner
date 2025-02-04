@@ -40,10 +40,14 @@ export const Spinner = () => {
         const anglePerSection = 360 / sections.length;
         const normalizedRotation = ((newRotation % 360) + 360) % 360;
 
-        const adjustedRotation = (50 - normalizedRotation + 360) % 360;
+        const pointerOffset = Math.floor(anglePerSection / 2);
+
+        const adjustedRotation =
+            (pointerOffset - normalizedRotation + 360) % 360;
+
         const sectionIndex =
-            Math.floor((adjustedRotation + anglePerSection) / anglePerSection) %
-            sections.length;
+            Math.floor(adjustedRotation / anglePerSection) % sections.length;
+
         setWinner(sections[sectionIndex]);
     };
 
@@ -84,7 +88,7 @@ export const Spinner = () => {
                                         angle - rotationOffset
                                     }deg)`,
                                     clipPath:
-                                        sections.length > 1
+                                        index !== 0
                                             ? `polygon(50% 50%, 100% ${
                                                   50 -
                                                   Math.tan(
@@ -122,7 +126,7 @@ export const Spinner = () => {
                         SPIN
                     </button>
                 </div>
-                <div className={styles.arrow}>⬅</div>
+                <div className={styles.arrow}>⬇</div>
             </div>
 
             <div className={styles.addSectionContainer}>
